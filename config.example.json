@@ -1,0 +1,27 @@
+{
+  "target_name": "P24002",
+  "ble_address": null,
+
+  "net_key": null,
+  "app_key": null,
+  "dev_key": null,
+  "key_index": 0,
+  "iv_index": 0,
+  "provisioner_addr": 1,
+  "node_addr": 2,
+
+  "mqtt_host": "127.0.0.1",
+  "mqtt_port": 1883,
+  "mqtt_user": null,
+  "mqtt_password": null,
+  "topic_prefix": "nanlite/wand",
+
+  "status_host": "127.0.0.1",
+  "status_port": 0,
+
+  "debounce_s": 0.1,
+  "resend_gap_s": 0.1,
+  "send_pace_s": 0.06,
+  "retry": 1,
+  "sync_on_start": false
+}

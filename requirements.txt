@@ -1,0 +1,3 @@
+bleak>=0.22.3            # 跨平台 BLE（macOS 走 CoreBluetooth，Linux 走 BlueZ）
+cryptography>=42         # AES-CMAC / AES-CCM / P-256（Mesh 密钥推导）
+paho-mqtt>=2.1           # 仅常驻桥（nanlite-wand serve）需要

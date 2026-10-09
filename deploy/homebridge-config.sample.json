@@ -1,0 +1,46 @@
+{
+  "bridge": {
+    "name": "Nanlite Bridge",
+    "username": "AA:BB:CC:DD:EE:FF",
+    "port": 51826,
+    "pin": "031-45-154"
+  },
+
+  "_说明": [
+    "username 必须每台桥唯一（改了要重新配对）；pin 是添加配件时输入的 8 位码。",
+    "本文件刻意不含任何 IP / 网口名 / 网段：",
+    "  多网卡机器上如果手机搜不到桥，加一行  \"bind\": \"<你的接口名>\"  （填接口名，不要填 IP）。",
+    "  Homebridge 2.x 里 bridge.interfaces 已失效、写了会被静默忽略，见 docs/HOMEKIT.md。",
+    "色相/饱和度没有接进来：这盏灯进不了 tint 模式，接了就是两个静默失效的死控件。",
+    "绿/品（G/M）HomeKit 没有对应特征，用 nanlite-wand set --gm 或 MQTT 直接调。"
+  ],
+
+  "accessories": [
+    {
+      "accessory": "mqttthing",
+      "type": "lightbulb",
+      "name": "Nanlite Wand",
+      "url": "mqtt://127.0.0.1:1883",
+      "logMqtt": false,
+      "topics": {
+        "getOnline": "nanlite/wand/online",
+        "getOn": "nanlite/wand/on",
+        "setOn": "nanlite/wand/set/on",
+        "getBrightness": "nanlite/wand/brightness",
+        "setBrightness": "nanlite/wand/set/brightness",
+        "getColorTemperature": "nanlite/wand/colorTemperature",
+        "setColorTemperature": "nanlite/wand/set/colorTemperature"
+      },
+      "onlineValue": "Online",
+      "offlineValue": "Offline",
+      "minColorTemperature": 154,
+      "maxColorTemperature": 370,
+      "adaptiveLighting": false,
+      "confirmationPeriodms": 500,
+      "retryLimit": 3,
+      "debounceRecvms": 150
+    }
+  ],
+
+  "platforms": []
+}

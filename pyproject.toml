@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nanlite-wand-bridge"
+version = "0.1.0"
+description = "Control Nanlite Wand (Feasycom Bluetooth-Mesh) lights from a PC, and bridge them to HomeKit"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["bleak>=0.22.3", "cryptography>=42", "paho-mqtt>=2.1"]
+
+[project.scripts]
+nanlite-wand = "nanlite_wand.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

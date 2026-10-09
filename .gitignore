@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+config.json
+nanlite-wand.json
+# 运行期落盘：SEQ / rollCode / DeviceKey / 状态 / 日志，全都不该进仓库
+data/
+*.log
+state.json
+keys.json
+devkey.txt
+seq.txt
+roll.txt
+.DS_Store
+node_modules/
