@@ -1,13 +1,14 @@
 {
   "bridge": {
     "name": "Nanlite Bridge",
-    "username": "AA:BB:CC:DD:EE:FF",
+    "username": "AC:CF:85:0A:BB:1E",
     "port": 51826,
-    "pin": "031-45-154"
+    "pin": "123-45-678"
   },
 
   "_说明": [
-    "username 必须每台桥唯一（改了要重新配对）；pin 是添加配件时输入的 8 位码。",
+    "username 与 pin 都是**占位示例**，用之前必须改成你自己的：username 每台桥唯一（改了要重新配对），
+    pin 是添加配件时输入的 9 位码（Home App 里手动输入时去掉横线）。",
     "本文件刻意不含任何 IP / 网口名 / 网段：",
     "  多网卡机器上如果手机搜不到桥，加一行  \"bind\": \"<你的接口名>\"  （填接口名，不要填 IP）。",
     "  Homebridge 2.x 里 bridge.interfaces 已失效、写了会被静默忽略，见 docs/HOMEKIT.md。",
