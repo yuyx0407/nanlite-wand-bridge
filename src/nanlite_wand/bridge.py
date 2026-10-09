@@ -68,7 +68,7 @@ ECHO_TOL_SAT = 2
 
 # 启动时要不要立刻把状态下发一遍。
 # 默认**不**下发：灯的渐变很慢，重启服务时擅自改灯会很突兀。
-# 需要"启动即与 HomeKit 对齐"就设 WAND_SYNC_ON_START=1。
+# 需要"启动即与 HomeKit 对齐"就把配置里的 sync_on_start 设为 true。
 SYNC_ON_START = False        # 默认不在启动时动灯（由配置 sync_on_start 覆盖）
 
 LOG = os.environ.get("NANLITE_BRIDGE_LOG") or str(data_file("bridge.log"))
@@ -513,7 +513,7 @@ class Bridge:
     # ---------- 主循环 ----------
     async def run(self) -> None:
         # 首次连上后：把（持久化的）当前状态发布到 MQTT，让 HomeKit 立刻有值。
-        # 是否顺带把灯也同步到这个状态，由 WAND_SYNC_ON_START 决定（默认不）。
+        # 是否顺带把灯也同步到这个状态，由配置 sync_on_start 决定（默认不）。
         while not self.stop:
             if await self.ensure_mesh():
                 break
@@ -524,7 +524,7 @@ class Bridge:
             except Exception as e:
                 log(f"启动同步失败（忽略）：{e}")
         else:
-            log("启动同步已关闭（WAND_SYNC_ON_START=0）——只发布状态，不动灯")
+            log("启动同步已关闭（sync_on_start=false）——只发布状态，不动灯")
 
         last_send = 0.0
         while not self.stop:
